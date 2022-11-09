@@ -1,13 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import TodoCards from './TodoCards';
-import ToDoForm from './ToDoForm'
+import ToDoForm from './ToDoForm';
 
 export default function ToDo(props) {
-    let tasks = ['Create', 'Add', 'Display', 'Allow'];
+    const [tasks, setTasks] = useState([]);
+
+    function HandleFormSubmit(event){
+        event.preventDefault();
+        let newTask = event.target.task
+        setTasks([...tasks, newTask])
+        event.target.task.value = '';
+    }
+
   return (
     <>
         <h1>Listing</h1>
-        < ToDoForm/>
+        < ToDoForm HandleFormSubmit={HandleFormSubmit}/>
         <div className="row">
             {tasks.map((task, idx) => <TodoCards task={task} key={idx} />)}
         </div>
