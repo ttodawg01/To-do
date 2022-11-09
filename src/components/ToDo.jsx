@@ -7,9 +7,9 @@ export default function ToDo(props) {
 
     function HandleFormSubmit(event){
         event.preventDefault();
-        let newTask = event.target.task
+        let newTask = event.target.texting.value
         setTasks([...tasks, newTask])
-        event.target.task.value = '';
+        event.target.texting.value = '';
     }
 
   return (
