@@ -1,17 +1,14 @@
-import Form from "./components/Form"
-import Navbar from "./components/Navbar";
+import React from "react";
+import Nav from "./components/Nav";
+import ToDo from "./components/ToDo";
 
   function App() {
-    let MyName = 'tony'
-    let form = [
-      {}
-    ]
     return (
       <>
-          <Navbar name={MyName}/>
-          <div className="container">
-              {form.map(form => <Form />)}
-          </div>
+        <Nav/>
+        <div className="container">
+          <ToDo/>
+        </div>
       </>
   )
 }
