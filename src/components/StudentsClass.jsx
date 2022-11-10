@@ -1,13 +1,21 @@
-import React, {useState, useEffect} from 'react'
+import { render } from '@testing-library/react';
+import React, {useEffect, Component} from 'react'
 
-export default function Students(props) {
-    const [students, setStudents] = useState([])
+export default class Students extends Component {
+    constructor(props){
+        super(props);
+        this.state= {
+            students = []
+        }
+    }
 
-    useEffect(() =>{
+    componentDidMount(){
         fetch(`https://kekambas-bs.herokuapp.com/kekambas`)
             .then(res => res.json())
             .then(data => setStudents(data))
-    })
+    }
+
+render()
   return (
     <div className='row'>
         <div className="col">
